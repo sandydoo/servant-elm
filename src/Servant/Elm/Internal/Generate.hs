@@ -561,7 +561,7 @@ mkUrl opts segments =
         F.Cap arg ->
           let
             toStringSrc =
-              toString opts (maybeOf (arg ^. F.argType))
+              toString opts (elmTypeAlterations opts (maybeOf (arg ^. F.argType)))
           in
             pipeRight [elmCaptureArg s, toStringSrc]
 
